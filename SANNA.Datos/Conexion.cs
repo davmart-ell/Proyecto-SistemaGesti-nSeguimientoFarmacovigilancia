@@ -6,7 +6,7 @@ public static class Conexion
 {
     // Cambie el servidor según su instalación (ej.: .\SQLEXPRESS)
     public static string Cadena { get; set; } =
-        "Server=localhost;Database=FarmacovigilanciaSANNA;Trusted_Connection=True;TrustServerCertificate=True;";
+        "Server=.\\SQLEXPRESS;Database=FarmacovigilanciaSANNA;Trusted_Connection=True;TrustServerCertificate=True;";
 
     public static SqlCommand Comando(SqlConnection cn, string sp, params (string, object)[] ps)
     {
