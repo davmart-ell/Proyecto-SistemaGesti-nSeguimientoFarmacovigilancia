@@ -1,0 +1,2 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable></PropertyGroup>
+<ItemGroup><ProjectReference Include="..\SANNA.Negocio\SANNA.Negocio.csproj" /><ProjectReference Include="..\SANNA.Datos\SANNA.Datos.csproj" /><ProjectReference Include="..\SANNA.Entidades\SANNA.Entidades.csproj" /></ItemGroup></Project>
