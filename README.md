@@ -1,16 +1,16 @@
 # SANNA · Sistema de farmacovigilancia (C# Windows Forms + SQL Server)
 ## Participantes Grupo 3
-AGUERO MEDINA, MARLON LARRY (0%) 
-ESPEJO CRUZADO, FARID FABIAN (0%) 
-HERNANDEZ RENGIFO, MAURICIO RICARDO (0%) 
-MARTELL MENDOZA, ERNESTO DAVID (%) 
-RIOS PLASENCIA, RAUL (%) 
-ROSALES PULIDO, MAURICIO POOL (0%)
+1. AGUERO MEDINA, MARLON LARRY (0%)
+2. ESPEJO CRUZADO, FARID FABIAN (0%)
+3. HERNANDEZ RENGIFO, MAURICIO RICARDO (0%)
+4. MARTELL MENDOZA, ERNESTO DAVID (%)
+5. RIOS PLASENCIA, RAUL (%)
+6. ROSALES PULIDO, MAURICIO POOL (0%)
 ## Puesta en marcha
 1. Abra `Database/01_FarmacovigilanciaSANNA.sql` en SQL Server Management Studio y ejecútelo (crea la BD, 20 tablas, datos de prueba y procedimientos).
 2. Abra `SANNA.sln` en Visual Studio 2022 (carga «Desarrollo de escritorio .NET», SDK .NET 8).
 3. Ajuste el servidor en `SANNA.Datos/Conexion.cs` (por defecto `localhost`; SQL Express: `.\SQLEXPRESS`).
-4. Proyecto de inicio: `SANNA.Presentacion`. Ejecute con F5.
+4. Establecer como proyecto de inicio: `SANNA.Presentacion`. Ejecute con F5.
 
 Usuarios de prueba: admin, admision, medico, enfermera, quimico, comite — contraseña = usuario + `123`.
 

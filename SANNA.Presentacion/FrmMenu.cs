@@ -1,4 +1,5 @@
 using SANNA.Negocio;
+using SANNA.Presentacion.Contenedores;
 namespace SANNA.Presentacion;
 
 public class FrmMenu : Form
@@ -27,11 +28,13 @@ public class FrmMenu : Form
         lblUsuario = new Label();
         label1 = new Label();
         pnlContenido = new Panel();
+        btnProductosFarmaceuticos = new Button();
         pnlSidebar.SuspendLayout();
         SuspendLayout();
         // 
         // pnlSidebar
         // 
+        pnlSidebar.Controls.Add(btnProductosFarmaceuticos);
         pnlSidebar.Controls.Add(label2);
         pnlSidebar.Controls.Add(btnCerrarSesion);
         pnlSidebar.Controls.Add(btnLotes);
@@ -109,6 +112,16 @@ public class FrmMenu : Form
         pnlContenido.Size = new Size(965, 660);
         pnlContenido.TabIndex = 1;
         // 
+        // btnProductosFarmaceuticos
+        // 
+        btnProductosFarmaceuticos.Location = new Point(0, 279);
+        btnProductosFarmaceuticos.Name = "btnProductosFarmaceuticos";
+        btnProductosFarmaceuticos.Size = new Size(250, 66);
+        btnProductosFarmaceuticos.TabIndex = 6;
+        btnProductosFarmaceuticos.Text = "Productos Farmaceuticos";
+        btnProductosFarmaceuticos.UseVisualStyleBackColor = true;
+        btnProductosFarmaceuticos.Click += btnProductosFarmaceuticos_Click;
+        // 
         // FrmMenu
         // 
         ClientSize = new Size(1219, 660);
@@ -128,6 +141,7 @@ public class FrmMenu : Form
     private Label lblUsuario;
     private Label label1;
     private Label label2;
+    private Button btnProductosFarmaceuticos;
     private Panel pnlContenido;
 
     private void btnPacientes_Click(object sender, EventArgs e)
@@ -165,5 +179,10 @@ public class FrmMenu : Form
     private void btnCerrarSesion_Click(object sender, EventArgs e)
     {
         Close();
+    }
+
+    private void btnProductosFarmaceuticos_Click(object sender, EventArgs e)
+    {
+        CargarFormulario(new FrmProductosFarmaceuticos());
     }
 }

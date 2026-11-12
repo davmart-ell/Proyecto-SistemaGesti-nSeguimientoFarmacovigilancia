@@ -284,4 +284,248 @@ CREATE PROC sp_Consulta_ExpuestosPorLote @IdProducto INT,@NroLote VARCHAR(30) AS
   FROM Administracion a JOIN Atencion t ON t.IdAtencion=a.IdAtencion JOIN Paciente p ON p.IdPaciente=t.IdPaciente
   JOIN LoteProducto l ON l.IdLote=a.IdLote WHERE l.IdProducto=@IdProducto AND l.NroLote=@NroLote ORDER BY a.FechaHora DESC;
 GO
+
+/* ==============================================
+   CU14 - GESTIONAR PRODUCTOS FARMACEUTICOS
+   ============================================== */
+
+/* 1. LISTAR LABORATORIOS ACTIVOS */
+
+CREATE OR ALTER PROCEDURE dbo.sp_Laboratorio_ListarActivos
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT IdLaboratorio, Nombre
+    FROM Laboratorio
+    WHERE Activo = 1
+    ORDER BY Nombre;
+END;
+GO
+
+
+/* 2. LISTAR Y BUSCAR PRODUCTOS FARMACEUTICOS */
+
+CREATE OR ALTER PROCEDURE dbo.sp_ProductoFarmaceutico_Listar
+    @Filtro VARCHAR(100) = ''
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SET @Filtro = LTRIM(RTRIM(ISNULL(@Filtro, '')));
+
+    SELECT
+        p.IdProducto,
+        p.NombreComercial,
+        p.PrincipioActivo,
+        p.FormaFarmaceutica,
+        p.Concentracion,
+        p.IdLaboratorio,
+        l.Nombre AS NombreLaboratorio,
+        p.RegistroSanitario,
+        p.Activo
+    FROM ProductoFarmaceutico p
+    INNER JOIN Laboratorio l
+        ON l.IdLaboratorio = p.IdLaboratorio
+    WHERE
+        @Filtro = ''
+        OR p.NombreComercial LIKE '%' + @Filtro + '%'
+        OR p.PrincipioActivo LIKE '%' + @Filtro + '%'
+        OR p.RegistroSanitario LIKE '%' + @Filtro + '%'
+        OR l.Nombre LIKE '%' + @Filtro + '%'
+    ORDER BY p.NombreComercial;
+END;
+GO
+
+
+/* 3. REGISTRAR Y ACTUALIZAR PRODUCTOS */
+
+CREATE OR ALTER PROCEDURE dbo.sp_ProductoFarmaceutico_Guardar
+    @IdProducto INT,
+    @NombreComercial VARCHAR(100),
+    @PrincipioActivo VARCHAR(100),
+    @FormaFarmaceutica VARCHAR(50),
+    @Concentracion VARCHAR(30),
+    @IdLaboratorio INT,
+    @RegistroSanitario VARCHAR(30),
+    @IdUsuario INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET XACT_ABORT ON;
+
+    SET @NombreComercial = LTRIM(RTRIM(@NombreComercial));
+    SET @PrincipioActivo = LTRIM(RTRIM(@PrincipioActivo));
+    SET @RegistroSanitario = LTRIM(RTRIM(@RegistroSanitario));
+
+    SET @FormaFarmaceutica =
+        NULLIF(LTRIM(RTRIM(@FormaFarmaceutica)), '');
+
+    SET @Concentracion =
+        NULLIF(LTRIM(RTRIM(@Concentracion)), '');
+
+    -- Validar campos obligatorios
+
+    IF NULLIF(@NombreComercial, '') IS NULL
+    BEGIN
+        ;THROW 50020, 'El nombre comercial es obligatorio.', 1;
+    END;
+
+    IF NULLIF(@PrincipioActivo, '') IS NULL
+    BEGIN
+        ;THROW 50021, 'El principio activo es obligatorio.', 1;
+    END;
+
+    IF NULLIF(@RegistroSanitario, '') IS NULL
+    BEGIN
+        ;THROW 50022, 'El registro sanitario es obligatorio.', 1;
+    END;
+
+    -- Validar laboratorio activo
+
+    IF NOT EXISTS (
+        SELECT 1
+        FROM Laboratorio
+        WHERE IdLaboratorio = @IdLaboratorio
+          AND Activo = 1
+    )
+    BEGIN
+        ;THROW 50023, 'Seleccione un laboratorio activo.', 1;
+    END;
+
+    -- Evitar registros sanitarios duplicados
+
+    IF EXISTS (
+        SELECT 1
+        FROM ProductoFarmaceutico
+        WHERE RegistroSanitario = @RegistroSanitario
+          AND IdProducto <> @IdProducto
+    )
+    BEGIN
+        ;THROW 50024, 'El registro sanitario ya está registrado.', 1;
+    END;
+
+    -- Verificar existencia al actualizar
+
+    IF @IdProducto <> 0
+       AND NOT EXISTS (
+           SELECT 1
+           FROM ProductoFarmaceutico
+           WHERE IdProducto = @IdProducto
+       )
+    BEGIN
+        ;THROW 50025, 'El producto no existe.', 1;
+    END;
+
+    DECLARE @Accion VARCHAR(30);
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        IF @IdProducto = 0
+        BEGIN
+            INSERT INTO ProductoFarmaceutico
+            (
+                NombreComercial,
+                PrincipioActivo,
+                FormaFarmaceutica,
+                Concentracion,
+                IdLaboratorio,
+                RegistroSanitario
+            )
+            VALUES
+            (
+                @NombreComercial,
+                @PrincipioActivo,
+                @FormaFarmaceutica,
+                @Concentracion,
+                @IdLaboratorio,
+                @RegistroSanitario
+            );
+
+            SET @IdProducto = CONVERT(INT, SCOPE_IDENTITY());
+            SET @Accion = 'Crear';
+        END
+        ELSE
+        BEGIN
+            UPDATE ProductoFarmaceutico
+            SET
+                NombreComercial = @NombreComercial,
+                PrincipioActivo = @PrincipioActivo,
+                FormaFarmaceutica = @FormaFarmaceutica,
+                Concentracion = @Concentracion,
+                IdLaboratorio = @IdLaboratorio,
+                RegistroSanitario = @RegistroSanitario
+            WHERE IdProducto = @IdProducto;
+
+            SET @Accion = 'Modificar';
+        END;
+
+        EXEC dbo.sp_Auditoria_Registrar
+            @IdUsuario,
+            'ProductoFarmaceutico',
+            @IdProducto,
+            @Accion;
+
+        COMMIT TRANSACTION;
+
+        SELECT @IdProducto AS IdProducto;
+    END TRY
+    BEGIN CATCH
+        IF XACT_STATE() <> 0
+            ROLLBACK TRANSACTION;
+
+        THROW;
+    END CATCH;
+END;
+GO
+
+
+/* 4. ACTIVAR E INHABILITAR PRODUCTOS */
+
+CREATE OR ALTER PROCEDURE dbo.sp_ProductoFarmaceutico_CambiarEstado
+    @IdProducto INT,
+    @Activo BIT,
+    @IdUsuario INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET XACT_ABORT ON;
+
+    DECLARE @Accion VARCHAR(30);
+
+    SET @Accion =
+        CASE WHEN @Activo = 1
+             THEN 'Activar'
+             ELSE 'Inhabilitar'
+        END;
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        UPDATE ProductoFarmaceutico
+        SET Activo = @Activo
+        WHERE IdProducto = @IdProducto;
+
+        IF @@ROWCOUNT = 0
+        BEGIN
+            ;THROW 50026, 'El producto no existe.', 1;
+        END;
+
+        EXEC dbo.sp_Auditoria_Registrar
+            @IdUsuario,
+            'ProductoFarmaceutico',
+            @IdProducto,
+            @Accion;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF XACT_STATE() <> 0
+            ROLLBACK TRANSACTION;
+
+        THROW;
+    END CATCH;
+END;
+GO
 PRINT 'Base FarmacovigilanciaSANNA creada correctamente.';
