@@ -26,7 +26,8 @@ public class FrmMenu : Form
         btnPacientes,
         btnLotes,
         btnProductosFarmaceuticos,
-        btnEspecialidades
+        btnEspecialidades,
+        btnPersonalSalud
     };
 
         foreach (Button boton in botones)
@@ -54,7 +55,8 @@ public class FrmMenu : Form
         btnPacientes,
         btnLotes,
         btnProductosFarmaceuticos,
-        btnEspecialidades
+        btnEspecialidades,
+        btnPersonalSalud
     };
 
         foreach (Button boton in botones)
@@ -83,6 +85,7 @@ public class FrmMenu : Form
     private void InitializeComponent()
     {
         pnlSidebar = new Panel();
+        btnPersonalSalud = new Button();
         pictureBox1 = new PictureBox();
         btnProductosFarmaceuticos = new Button();
         btnEspecialidades = new Button();
@@ -100,6 +103,7 @@ public class FrmMenu : Form
         // 
         pnlSidebar.BackColor = Color.Transparent;
         pnlSidebar.BackgroundImage = Properties.Resources.color1;
+        pnlSidebar.Controls.Add(btnPersonalSalud);
         pnlSidebar.Controls.Add(pictureBox1);
         pnlSidebar.Controls.Add(btnProductosFarmaceuticos);
         pnlSidebar.Controls.Add(btnEspecialidades);
@@ -113,6 +117,16 @@ public class FrmMenu : Form
         pnlSidebar.Name = "pnlSidebar";
         pnlSidebar.Size = new Size(250, 979);
         pnlSidebar.TabIndex = 0;
+        // 
+        // btnPersonalSalud
+        // 
+        btnPersonalSalud.Location = new Point(-2, 488);
+        btnPersonalSalud.Name = "btnPersonalSalud";
+        btnPersonalSalud.Size = new Size(249, 64);
+        btnPersonalSalud.TabIndex = 0;
+        btnPersonalSalud.Text = "\tPersonal de salud";
+        btnPersonalSalud.UseVisualStyleBackColor = true;
+        btnPersonalSalud.Click += btnPersonalSalud_Click;
         // 
         // pictureBox1
         // 
@@ -155,7 +169,7 @@ public class FrmMenu : Form
         label2.ForeColor = Color.DarkOliveGreen;
         label2.Location = new Point(4, 106);
         label2.Name = "label2";
-        label2.Size = new Size(99, 23);
+        label2.Size = new Size(84, 19);
         label2.TabIndex = 5;
         label2.Text = "Bienvenido";
         // 
@@ -204,7 +218,7 @@ public class FrmMenu : Form
         lblUsuario.ForeColor = SystemColors.ControlDarkDark;
         lblUsuario.Location = new Point(22, 137);
         lblUsuario.Name = "lblUsuario";
-        lblUsuario.Size = new Size(19, 23);
+        lblUsuario.Size = new Size(17, 19);
         lblUsuario.TabIndex = 1;
         lblUsuario.Text = "x";
         // 
@@ -239,6 +253,7 @@ public class FrmMenu : Form
     private Button btnProductosFarmaceuticos;
     private Panel pnlContenido;
     private PictureBox pictureBox1;
+    private Button btnPersonalSalud;
     private Button btnEspecialidades;
 
     private void btnPacientes_Click(object sender, EventArgs e)
@@ -284,6 +299,10 @@ public class FrmMenu : Form
     private void btnEspecialidades_Click(object sender, EventArgs e)
     {
         CargarFormulario(new FrmEspecialidades(), btnEspecialidades);
+    }
+    private void btnPersonalSalud_Click(object sender, EventArgs e)
+    {
+        CargarFormulario(new FrmPersonalSalud(), btnPersonalSalud);
     }
 
 }
