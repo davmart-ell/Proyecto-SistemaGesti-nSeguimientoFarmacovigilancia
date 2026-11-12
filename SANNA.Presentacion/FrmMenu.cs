@@ -29,12 +29,14 @@ public class FrmMenu : Form
         label1 = new Label();
         pnlContenido = new Panel();
         btnProductosFarmaceuticos = new Button();
+        btnEspecialidades = new Button();
         pnlSidebar.SuspendLayout();
         SuspendLayout();
         // 
         // pnlSidebar
         // 
         pnlSidebar.Controls.Add(btnProductosFarmaceuticos);
+        pnlSidebar.Controls.Add(btnEspecialidades);
         pnlSidebar.Controls.Add(label2);
         pnlSidebar.Controls.Add(btnCerrarSesion);
         pnlSidebar.Controls.Add(btnLotes);
@@ -121,6 +123,16 @@ public class FrmMenu : Form
         btnProductosFarmaceuticos.Text = "Productos Farmaceuticos";
         btnProductosFarmaceuticos.UseVisualStyleBackColor = true;
         btnProductosFarmaceuticos.Click += btnProductosFarmaceuticos_Click;
+        //
+        // btnEspecialidades
+        //
+        btnEspecialidades.Location = new Point(0, 343);
+        btnEspecialidades.Name = "btnEspecialidades";
+        btnEspecialidades.Size = new Size(250, 66);
+        btnEspecialidades.TabIndex = 7;
+        btnEspecialidades.Text = "Especialidades";
+        btnEspecialidades.UseVisualStyleBackColor = true;
+        btnEspecialidades.Click += btnEspecialidades_Click;
         // 
         // FrmMenu
         // 
@@ -143,6 +155,7 @@ public class FrmMenu : Form
     private Label label2;
     private Button btnProductosFarmaceuticos;
     private Panel pnlContenido;
+    private Button btnEspecialidades;
 
     private void btnPacientes_Click(object sender, EventArgs e)
     {
@@ -184,5 +197,10 @@ public class FrmMenu : Form
     private void btnProductosFarmaceuticos_Click(object sender, EventArgs e)
     {
         CargarFormulario(new FrmProductosFarmaceuticos());
+    }
+
+    private void btnEspecialidades_Click(object sender, EventArgs e)
+    {
+        CargarFormulario(new FrmEspecialidades());
     }
 }
