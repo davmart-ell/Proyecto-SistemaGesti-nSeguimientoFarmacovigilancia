@@ -15,7 +15,7 @@
 Usuarios de prueba: admin, admision, medico, enfermera, quimico, comite — contraseña = usuario + `123`.
 
 ## Arquitectura (Tabla 43 del informe)
-Presentacion (WinForms) → Negocio (reglas) → Datos (SQL Server, procedimientos) → Entidades.
+Presentación (WinForms) → Negocio (reglas) → Datos (SQL Server, procedimientos) → Entidades.
 
 ## Ya implementado
 Login con hash+sal y roles · mantenedor de pacientes (CUS02) · consulta de lotes (CUS06) · bloqueo de lotes · cálculo de plazos 24/72 h · acceso a datos de sospechas · procedimientos de todo el flujo CORE y de la consulta de expuestos (CUS17).
