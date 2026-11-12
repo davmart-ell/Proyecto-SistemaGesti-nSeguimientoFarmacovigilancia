@@ -50,6 +50,7 @@
             lblForma = new Label();
             lblPrincipio = new Label();
             lblNombre = new Label();
+            label1 = new Label();
             pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             grpDatos.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // pnlBusqueda
             // 
+            pnlBusqueda.BackColor = Color.Transparent;
             pnlBusqueda.Controls.Add(btnMostrarTodos);
             pnlBusqueda.Controls.Add(btnBuscar);
             pnlBusqueda.Controls.Add(txtBuscar);
@@ -64,12 +66,13 @@
             pnlBusqueda.Dock = DockStyle.Top;
             pnlBusqueda.Location = new Point(0, 0);
             pnlBusqueda.Name = "pnlBusqueda";
-            pnlBusqueda.Size = new Size(942, 110);
+            pnlBusqueda.Size = new Size(1137, 105);
             pnlBusqueda.TabIndex = 0;
             // 
             // btnMostrarTodos
             // 
-            btnMostrarTodos.Location = new Point(544, 67);
+            btnMostrarTodos.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMostrarTodos.Location = new Point(659, 55);
             btnMostrarTodos.Name = "btnMostrarTodos";
             btnMostrarTodos.Size = new Size(137, 29);
             btnMostrarTodos.TabIndex = 3;
@@ -78,26 +81,31 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(565, 22);
+            btnBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.Location = new Point(659, 17);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.Size = new Size(137, 29);
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(304, 45);
+            txtBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtBuscar.ForeColor = SystemColors.ControlDarkDark;
+            txtBuscar.Location = new Point(264, 54);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(125, 27);
+            txtBuscar.Size = new Size(305, 30);
             txtBuscar.TabIndex = 1;
             // 
             // lblBuscar
             // 
             lblBuscar.AutoSize = true;
-            lblBuscar.Location = new Point(166, 48);
+            lblBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBuscar.ForeColor = Color.DarkOliveGreen;
+            lblBuscar.Location = new Point(264, 19);
             lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(120, 20);
+            lblBuscar.Size = new Size(146, 23);
             lblBuscar.TabIndex = 0;
             lblBuscar.Text = "Buscar producto:";
             // 
@@ -108,14 +116,14 @@
             dgvProductos.AllowUserToResizeColumns = false;
             dgvProductos.AllowUserToResizeRows = false;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Location = new Point(31, 123);
+            dgvProductos.Location = new Point(116, 158);
             dgvProductos.MultiSelect = false;
             dgvProductos.Name = "dgvProductos";
             dgvProductos.ReadOnly = true;
             dgvProductos.RowHeadersVisible = false;
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProductos.Size = new Size(878, 233);
+            dgvProductos.Size = new Size(878, 480);
             dgvProductos.TabIndex = 1;
             // 
             // grpDatos
@@ -135,143 +143,172 @@
             grpDatos.Controls.Add(lblForma);
             grpDatos.Controls.Add(lblPrincipio);
             grpDatos.Controls.Add(lblNombre);
-            grpDatos.Location = new Point(93, 369);
+            grpDatos.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpDatos.Location = new Point(166, 651);
             grpDatos.Name = "grpDatos";
-            grpDatos.Size = new Size(745, 275);
+            grpDatos.Size = new Size(745, 267);
             grpDatos.TabIndex = 2;
             grpDatos.TabStop = false;
             grpDatos.Text = "Datos del producto farmacéutico";
             // 
             // btnCambiarEstado
             // 
+            btnCambiarEstado.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCambiarEstado.Location = new Point(447, 229);
             btnCambiarEstado.Name = "btnCambiarEstado";
-            btnCambiarEstado.Size = new Size(94, 29);
+            btnCambiarEstado.Size = new Size(110, 29);
             btnCambiarEstado.TabIndex = 14;
             btnCambiarEstado.Text = "Inhabilitar";
             btnCambiarEstado.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
+            btnGuardar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.Location = new Point(310, 229);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(107, 29);
             btnGuardar.TabIndex = 13;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             // 
             // btnNuevo
             // 
+            btnNuevo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevo.Location = new Point(162, 229);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(94, 29);
+            btnNuevo.Size = new Size(104, 29);
             btnNuevo.TabIndex = 12;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
             // 
             // cmbLaboratorio
             // 
+            cmbLaboratorio.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbLaboratorio.FormattingEnabled = true;
-            cmbLaboratorio.Location = new Point(463, 73);
+            cmbLaboratorio.Location = new Point(518, 73);
             cmbLaboratorio.Name = "cmbLaboratorio";
-            cmbLaboratorio.Size = new Size(151, 28);
+            cmbLaboratorio.Size = new Size(207, 31);
             cmbLaboratorio.TabIndex = 11;
             // 
             // cmbFormaFarmaceutica
             // 
+            cmbFormaFarmaceutica.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbFormaFarmaceutica.FormattingEnabled = true;
-            cmbFormaFarmaceutica.Location = new Point(279, 75);
+            cmbFormaFarmaceutica.Location = new Point(274, 75);
             cmbFormaFarmaceutica.Name = "cmbFormaFarmaceutica";
-            cmbFormaFarmaceutica.Size = new Size(151, 28);
+            cmbFormaFarmaceutica.Size = new Size(207, 31);
             cmbFormaFarmaceutica.TabIndex = 10;
             // 
             // txtConcentracion
             // 
-            txtConcentracion.Location = new Point(295, 158);
+            txtConcentracion.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtConcentracion.Location = new Point(274, 158);
             txtConcentracion.Name = "txtConcentracion";
-            txtConcentracion.Size = new Size(125, 27);
+            txtConcentracion.Size = new Size(207, 30);
             txtConcentracion.TabIndex = 9;
             // 
             // txtRegistroSanitario
             // 
-            txtRegistroSanitario.Location = new Point(463, 158);
+            txtRegistroSanitario.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtRegistroSanitario.Location = new Point(519, 158);
             txtRegistroSanitario.Name = "txtRegistroSanitario";
-            txtRegistroSanitario.Size = new Size(125, 27);
+            txtRegistroSanitario.Size = new Size(207, 30);
             txtRegistroSanitario.TabIndex = 8;
             // 
             // txtPrincipioActivo
             // 
-            txtPrincipioActivo.Location = new Point(103, 158);
+            txtPrincipioActivo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPrincipioActivo.Location = new Point(17, 158);
             txtPrincipioActivo.Name = "txtPrincipioActivo";
-            txtPrincipioActivo.Size = new Size(125, 27);
+            txtPrincipioActivo.Size = new Size(216, 30);
             txtPrincipioActivo.TabIndex = 7;
             // 
             // txtNombreComercial
             // 
-            txtNombreComercial.Location = new Point(103, 75);
+            txtNombreComercial.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNombreComercial.Location = new Point(17, 75);
             txtNombreComercial.Name = "txtNombreComercial";
-            txtNombreComercial.Size = new Size(125, 27);
+            txtNombreComercial.Size = new Size(216, 30);
             txtNombreComercial.TabIndex = 6;
             // 
             // lblRegistro
             // 
             lblRegistro.AutoSize = true;
-            lblRegistro.Location = new Point(463, 134);
+            lblRegistro.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRegistro.Location = new Point(518, 130);
             lblRegistro.Name = "lblRegistro";
-            lblRegistro.Size = new Size(125, 20);
+            lblRegistro.Size = new Size(151, 23);
             lblRegistro.TabIndex = 5;
             lblRegistro.Text = "Registro sanitario";
             // 
             // lblLaboratorio
             // 
             lblLaboratorio.AutoSize = true;
-            lblLaboratorio.Location = new Point(463, 43);
+            lblLaboratorio.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLaboratorio.Location = new Point(518, 43);
             lblLaboratorio.Name = "lblLaboratorio";
-            lblLaboratorio.Size = new Size(87, 20);
+            lblLaboratorio.Size = new Size(104, 23);
             lblLaboratorio.TabIndex = 4;
             lblLaboratorio.Text = "Laboratorio";
             // 
             // lblConcentracion
             // 
             lblConcentracion.AutoSize = true;
-            lblConcentracion.Location = new Point(269, 126);
+            lblConcentracion.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblConcentracion.Location = new Point(280, 126);
             lblConcentracion.Name = "lblConcentracion";
-            lblConcentracion.Size = new Size(104, 20);
+            lblConcentracion.Size = new Size(124, 23);
             lblConcentracion.TabIndex = 3;
             lblConcentracion.Text = "Concentración";
             // 
             // lblForma
             // 
             lblForma.AutoSize = true;
-            lblForma.Location = new Point(279, 43);
+            lblForma.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblForma.Location = new Point(274, 43);
             lblForma.Name = "lblForma";
-            lblForma.Size = new Size(141, 20);
+            lblForma.Size = new Size(170, 23);
             lblForma.TabIndex = 2;
             lblForma.Text = "Forma farmacéutica";
             // 
             // lblPrincipio
             // 
             lblPrincipio.AutoSize = true;
-            lblPrincipio.Location = new Point(103, 116);
+            lblPrincipio.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPrincipio.Location = new Point(17, 124);
             lblPrincipio.Name = "lblPrincipio";
-            lblPrincipio.Size = new Size(111, 20);
+            lblPrincipio.Size = new Size(134, 23);
             lblPrincipio.TabIndex = 1;
             lblPrincipio.Text = "Principio activo";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(103, 36);
+            lblNombre.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombre.Location = new Point(17, 36);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(133, 20);
+            lblNombre.Size = new Size(158, 23);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre comercial";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.DarkOliveGreen;
+            label1.Location = new Point(114, 128);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 23);
+            label1.TabIndex = 3;
+            label1.Text = "Tabla de fármacos";
             // 
             // FrmProductosFarmaceuticos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(942, 667);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(1137, 932);
+            Controls.Add(label1);
             Controls.Add(grpDatos);
             Controls.Add(dgvProductos);
             Controls.Add(pnlBusqueda);
@@ -283,6 +320,7 @@
             grpDatos.ResumeLayout(false);
             grpDatos.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -309,5 +347,6 @@
         private Button btnCambiarEstado;
         private Button btnGuardar;
         private Button btnNuevo;
+        private Label label1;
     }
 }

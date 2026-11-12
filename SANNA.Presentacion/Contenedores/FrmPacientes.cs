@@ -6,8 +6,15 @@ namespace SANNA.Presentacion;
 /// Mantenedor CRUD de pacientes (CUS02). Copie este patrón para personal, especialidades, productos y usuarios.
 public class FrmPacientes : Form
 {
-    readonly DataGridView grid = new() { Dock = DockStyle.Fill, ReadOnly = true, SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-        AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill, AllowUserToAddRows = false, RowHeadersVisible = false };
+    readonly DataGridView grid = new()
+    {
+        Dock = DockStyle.Fill,
+        ReadOnly = true,
+        SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+        AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+        AllowUserToAddRows = false,
+        RowHeadersVisible = false
+    };
     readonly TextBox txtBuscar = new() { Width = 220 };
     readonly TextBox txtDoc = new() { Width = 130 }, txtApe = new() { Width = 180 }, txtNom = new() { Width = 180 }, txtTel = new() { Width = 130 };
     readonly DateTimePicker dtpNac = new() { Width = 130, Format = DateTimePickerFormat.Short };
@@ -39,8 +46,16 @@ public class FrmPacientes : Form
     {
         try
         {
-            grid.DataSource = PacienteDatos.Listar(txtBuscar.Text).Select(p => new { p.IdPaciente, Documento = p.NroDocumento, Paciente = p.NombreCompleto,
-                Nacimiento = p.FechaNacimiento.ToShortDateString(), p.Sexo, Teléfono = p.Telefono, Estado = p.Activo ? "Activo" : "Inactivo" }).ToList();
+            grid.DataSource = PacienteDatos.Listar(txtBuscar.Text).Select(p => new
+            {
+                p.IdPaciente,
+                Documento = p.NroDocumento,
+                Paciente = p.NombreCompleto,
+                Nacimiento = p.FechaNacimiento.ToShortDateString(),
+                p.Sexo,
+                Teléfono = p.Telefono,
+                Estado = p.Activo ? "Activo" : "Inactivo"
+            }).ToList();
             if (grid.Columns.Count > 0) grid.Columns["IdPaciente"].Visible = false;
         }
         catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -67,6 +82,11 @@ public class FrmPacientes : Form
             PacienteNegocio.Guardar(actual); MessageBox.Show("Paciente guardado."); Cargar();
         }
         catch (Exception ex) { MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+    }
+
+    private void InitializeComponent()
+    {
+
     }
 
     void CambiarEstado()

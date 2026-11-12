@@ -50,7 +50,6 @@ namespace SANNA.Presentacion.Contenedores
             }
         }
 
-        // LISTAR ESPECIALIDADES
         private void CargarEspecialidades()
         {
             dgvEspecialidades.DataSource = null;
@@ -58,7 +57,6 @@ namespace SANNA.Presentacion.Contenedores
             dgvEspecialidades.ClearSelection();
         }
 
-        // LIMPIAR CAMPOS
         private void LimpiarCampos()
         {
             idSeleccionado = 0;
@@ -68,13 +66,11 @@ namespace SANNA.Presentacion.Contenedores
             dgvEspecialidades.ClearSelection();
         }
 
-        // BOTÓN NUEVO
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
-        // BOTÓN GUARDAR
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -93,7 +89,6 @@ namespace SANNA.Presentacion.Contenedores
             }
         }
 
-        // BOTÓN MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
@@ -114,7 +109,6 @@ namespace SANNA.Presentacion.Contenedores
             }
         }
 
-        // BOTÓN ACTIVAR / DESACTIVAR
         private void btnEstado_Click(object sender, EventArgs e)
         {
             try
@@ -142,7 +136,7 @@ namespace SANNA.Presentacion.Contenedores
             }
         }
 
-        // BUSCAR ESPECIALIDADES
+        // Buscar alguna especialidad
         private void txtBuscar_TextChanged(
             object sender, EventArgs e)
         {
@@ -160,7 +154,6 @@ namespace SANNA.Presentacion.Contenedores
             }
         }
 
-        // SELECCIONAR UNA FILA DE LA TABLA
         private void dgvEspecialidades_CellClick(
             object sender,
             DataGridViewCellEventArgs e)

@@ -10,19 +10,9 @@ namespace SANNA.Presentacion.Contenedores
 {
     public partial class FrmProductosFarmaceuticos : Form
     {
-        // Lista de productos recuperados de SQL Server
         private List<ProductoFarmaceutico> productos = new();
-
-        // Producto actualmente seleccionado
         private ProductoFarmaceutico actual = new();
-
-        // Evita eventos durante la carga del DataGridView
         private bool cargando = false;
-
-
-        // ==========================================
-        // CONSTRUCTOR
-        // ==========================================
 
         public FrmProductosFarmaceuticos()
         {
@@ -33,11 +23,6 @@ namespace SANNA.Presentacion.Contenedores
 
             Load += FrmProductosFarmaceuticos_Load;
         }
-
-
-        // ==========================================
-        // CONFIGURACION
-        // ==========================================
 
         private void ConfigurarControles()
         {
@@ -78,11 +63,6 @@ namespace SANNA.Presentacion.Contenedores
             btnCambiarEstado.Enabled = false;
         }
 
-
-        // ==========================================
-        // REGISTRAR EVENTOS
-        // ==========================================
-
         private void RegistrarEventos()
         {
             btnBuscar.Click += (_, _) => CargarProductos();
@@ -112,22 +92,12 @@ namespace SANNA.Presentacion.Contenedores
                 (_, _) => SeleccionarProducto();
         }
 
-
-        // ==========================================
-        // INICIALIZAR FORMULARIO
-        // ==========================================
-
         private void FrmProductosFarmaceuticos_Load(
             object sender, EventArgs e)
         {
             CargarLaboratorios();
             CargarProductos();
         }
-
-
-        // ==========================================
-        // CARGAR LABORATORIOS
-        // ==========================================
 
         private void CargarLaboratorios()
         {
@@ -151,11 +121,6 @@ namespace SANNA.Presentacion.Contenedores
                 );
             }
         }
-
-
-        // ==========================================
-        // LISTAR Y BUSCAR PRODUCTOS
-        // ==========================================
 
         private void CargarProductos()
         {
@@ -238,11 +203,6 @@ namespace SANNA.Presentacion.Contenedores
             }
         }
 
-
-        // ==========================================
-        // SELECCIONAR PRODUCTO
-        // ==========================================
-
         private void SeleccionarProducto()
         {
             if (cargando || dgvProductos.CurrentRow == null)
@@ -305,11 +265,6 @@ namespace SANNA.Presentacion.Contenedores
             txtNombreComercial.Focus();
         }
 
-
-        // ==========================================
-        // REGISTRAR Y ACTUALIZAR
-        // ==========================================
-
         private void Guardar()
         {
             try
@@ -363,11 +318,6 @@ namespace SANNA.Presentacion.Contenedores
                 );
             }
         }
-
-
-        // ==========================================
-        // ACTIVAR E INHABILITAR
-        // ==========================================
 
         private void CambiarEstado()
         {

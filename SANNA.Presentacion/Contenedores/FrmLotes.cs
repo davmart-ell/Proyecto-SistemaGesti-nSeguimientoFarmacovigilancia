@@ -10,7 +10,17 @@ public class FrmLotes : Form
         Text = "Lotes de productos"; Width = 800; Height = 450;
         var g = new DataGridView { Dock = DockStyle.Fill, ReadOnly = true, AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill };
         Controls.Add(g);
-        Load += (_, _) => g.DataSource = LoteDatos.Listar().Select(l => new { Producto = l.NombreComercial, Lote = l.NroLote,
-            Vence = l.FechaVencimiento.ToShortDateString(), l.Estado }).ToList();
+        Load += (_, _) => g.DataSource = LoteDatos.Listar().Select(l => new
+        {
+            Producto = l.NombreComercial,
+            Lote = l.NroLote,
+            Vence = l.FechaVencimiento.ToShortDateString(),
+            l.Estado
+        }).ToList();
+    }
+
+    private void InitializeComponent()
+    {
+
     }
 }

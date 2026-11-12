@@ -17,81 +17,117 @@ public class FrmLogin : Form
         label1 = new Label();
         label2 = new Label();
         label3 = new Label();
+        panel1 = new Panel();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
         // btnIngresar
         // 
-        btnIngresar.Location = new Point(124, 378);
+        btnIngresar.BackColor = Color.ForestGreen;
+        btnIngresar.FlatStyle = FlatStyle.Flat;
+        btnIngresar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        btnIngresar.ForeColor = SystemColors.ButtonFace;
+        btnIngresar.Location = new Point(185, 575);
         btnIngresar.Name = "btnIngresar";
-        btnIngresar.Size = new Size(94, 29);
+        btnIngresar.Size = new Size(138, 38);
         btnIngresar.TabIndex = 0;
         btnIngresar.Text = "Ingresar";
-        btnIngresar.UseVisualStyleBackColor = true;
+        btnIngresar.UseVisualStyleBackColor = false;
         btnIngresar.Click += btnIngresar_Click_1;
         // 
         // txtP
         // 
-        txtP.Location = new Point(69, 292);
+        txtP.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        txtP.ForeColor = SystemColors.ControlDarkDark;
+        txtP.Location = new Point(116, 475);
         txtP.Name = "txtP";
-        txtP.Size = new Size(205, 27);
+        txtP.Size = new Size(289, 30);
         txtP.TabIndex = 1;
         txtP.UseSystemPasswordChar = true;
         // 
         // txtU
         // 
-        txtU.Location = new Point(69, 182);
+        txtU.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        txtU.ForeColor = SystemColors.ControlDarkDark;
+        txtU.Location = new Point(116, 341);
         txtU.Name = "txtU";
-        txtU.Size = new Size(205, 27);
+        txtU.Size = new Size(289, 30);
         txtU.TabIndex = 2;
         // 
         // lblErr
         // 
         lblErr.AutoSize = true;
-        lblErr.Location = new Point(58, 438);
+        lblErr.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        lblErr.ForeColor = Color.DarkOliveGreen;
+        lblErr.Location = new Point(122, 663);
         lblErr.Name = "lblErr";
-        lblErr.Size = new Size(0, 20);
+        lblErr.Size = new Size(0, 23);
         lblErr.TabIndex = 3;
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(59, 252);
+        label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        label1.ForeColor = SystemColors.ControlDarkDark;
+        label1.Location = new Point(116, 415);
         label1.Name = "label1";
-        label1.Size = new Size(83, 20);
+        label1.Size = new Size(99, 23);
         label1.TabIndex = 4;
         label1.Text = "Contraseña";
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(55, 138);
+        label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        label2.ForeColor = SystemColors.ControlDarkDark;
+        label2.Location = new Point(116, 292);
         label2.Name = "label2";
-        label2.Size = new Size(59, 20);
+        label2.Size = new Size(70, 23);
         label2.TabIndex = 5;
         label2.Text = "Usuario";
         // 
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(85, 58);
+        label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        label3.ForeColor = Color.DarkOliveGreen;
+        label3.Location = new Point(185, 218);
         label3.Name = "label3";
-        label3.Size = new Size(172, 20);
+        label3.Size = new Size(142, 25);
         label3.TabIndex = 6;
-        label3.Text = "SANNA · inicio de sesión";
+        label3.Text = "inicio de sesión";
+        // 
+        // panel1
+        // 
+        panel1.BackColor = Color.Transparent;
+        panel1.BackgroundImage = Properties.Resources.Fmlogin;
+        panel1.BackgroundImageLayout = ImageLayout.Stretch;
+        panel1.Controls.Add(label3);
+        panel1.Controls.Add(lblErr);
+        panel1.Controls.Add(label1);
+        panel1.Controls.Add(txtP);
+        panel1.Controls.Add(txtU);
+        panel1.Controls.Add(label2);
+        panel1.Controls.Add(btnIngresar);
+        panel1.Dock = DockStyle.Left;
+        panel1.Location = new Point(0, 0);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(519, 746);
+        panel1.TabIndex = 7;
         // 
         // FrmLogin
         // 
-        ClientSize = new Size(356, 485);
-        Controls.Add(label3);
-        Controls.Add(label2);
-        Controls.Add(label1);
-        Controls.Add(lblErr);
-        Controls.Add(txtU);
-        Controls.Add(txtP);
-        Controls.Add(btnIngresar);
+        ClientSize = new Size(519, 746);
+        Controls.Add(panel1);
+        FormBorderStyle = FormBorderStyle.FixedSingle;
+        MaximizeBox = false;
+        MinimizeBox = false;
         Name = "FrmLogin";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "SANNA · login";
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
 
     }
 
@@ -134,5 +170,6 @@ public class FrmLogin : Form
     private Label label1;
     private Label label2;
     private Label label3;
+    private Panel panel1;
     private Button btnIngresar;
 }

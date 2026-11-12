@@ -45,58 +45,74 @@
             // 
             dgvEspecialidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEspecialidades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEspecialidades.Location = new Point(12, 198);
+            dgvEspecialidades.Location = new Point(116, 262);
+            dgvEspecialidades.Margin = new Padding(3, 4, 3, 4);
             dgvEspecialidades.Name = "dgvEspecialidades";
-            dgvEspecialidades.Size = new Size(776, 145);
+            dgvEspecialidades.RowHeadersWidth = 51;
+            dgvEspecialidades.Size = new Size(887, 466);
             dgvEspecialidades.TabIndex = 0;
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(12, 26);
+            lblTitulo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.DarkOliveGreen;
+            lblTitulo.Location = new Point(116, 35);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(164, 15);
+            lblTitulo.Size = new Size(215, 23);
             lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "GESTIÓN DE ESPECIALIDADES";
+            lblTitulo.Text = "Gestión de especialidades";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(12, 59);
+            lblNombre.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombre.ForeColor = SystemColors.ControlDarkDark;
+            lblNombre.Location = new Point(116, 79);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(138, 15);
+            lblNombre.Size = new Size(210, 23);
             lblNombre.TabIndex = 2;
             lblNombre.Text = "Nombre de especialidad:";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(12, 90);
+            txtNombre.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNombre.ForeColor = SystemColors.ControlDarkDark;
+            txtNombre.Location = new Point(116, 120);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(280, 23);
+            txtNombre.Size = new Size(319, 30);
             txtNombre.TabIndex = 3;
             // 
             // lblBuscar
             // 
             lblBuscar.AutoSize = true;
-            lblBuscar.Location = new Point(12, 126);
+            lblBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBuscar.ForeColor = SystemColors.ControlDarkDark;
+            lblBuscar.Location = new Point(116, 168);
             lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(45, 15);
+            lblBuscar.Size = new Size(68, 23);
             lblBuscar.TabIndex = 4;
             lblBuscar.Text = "Buscar:";
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(12, 156);
+            txtBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtBuscar.ForeColor = SystemColors.ControlDarkDark;
+            txtBuscar.Location = new Point(116, 208);
+            txtBuscar.Margin = new Padding(3, 4, 3, 4);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(280, 23);
+            txtBuscar.Size = new Size(319, 30);
             txtBuscar.TabIndex = 5;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(233, 371);
+            btnNuevo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNuevo.Location = new Point(359, 752);
+            btnNuevo.Margin = new Padding(3, 4, 3, 4);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(125, 42);
+            btnNuevo.Size = new Size(143, 56);
             btnNuevo.TabIndex = 6;
             btnNuevo.Text = "NUEVO";
             btnNuevo.UseVisualStyleBackColor = true;
@@ -104,9 +120,11 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(449, 371);
+            btnGuardar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardar.Location = new Point(606, 752);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(133, 42);
+            btnGuardar.Size = new Size(152, 56);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "GUARDAR";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -114,9 +132,11 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(233, 428);
+            btnModificar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnModificar.Location = new Point(359, 828);
+            btnModificar.Margin = new Padding(3, 4, 3, 4);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(125, 44);
+            btnModificar.Size = new Size(143, 59);
             btnModificar.TabIndex = 8;
             btnModificar.Text = "MODIFICAR";
             btnModificar.UseVisualStyleBackColor = true;
@@ -124,9 +144,11 @@
             // 
             // btnEstado
             // 
-            btnEstado.Location = new Point(449, 432);
+            btnEstado.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEstado.Location = new Point(592, 834);
+            btnEstado.Margin = new Padding(3, 4, 3, 4);
             btnEstado.Name = "btnEstado";
-            btnEstado.Size = new Size(133, 40);
+            btnEstado.Size = new Size(178, 53);
             btnEstado.TabIndex = 9;
             btnEstado.Text = "Activar/Desactivar";
             btnEstado.UseVisualStyleBackColor = true;
@@ -134,9 +156,10 @@
             // 
             // FrmEspecialidades
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 522);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(1137, 932);
             Controls.Add(btnEstado);
             Controls.Add(btnModificar);
             Controls.Add(btnGuardar);
@@ -147,6 +170,7 @@
             Controls.Add(lblNombre);
             Controls.Add(lblTitulo);
             Controls.Add(dgvEspecialidades);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmEspecialidades";
             Text = "FrmEspecialidades";
             ((System.ComponentModel.ISupportInitialize)dgvEspecialidades).EndInit();

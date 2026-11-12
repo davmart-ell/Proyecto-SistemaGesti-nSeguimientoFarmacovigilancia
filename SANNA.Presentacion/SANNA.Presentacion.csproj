@@ -1,2 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable></PropertyGroup>
-<ItemGroup><ProjectReference Include="..\SANNA.Negocio\SANNA.Negocio.csproj" /><ProjectReference Include="..\SANNA.Datos\SANNA.Datos.csproj" /><ProjectReference Include="..\SANNA.Entidades\SANNA.Entidades.csproj" /></ItemGroup></Project>
+<ItemGroup><ProjectReference Include="..\SANNA.Negocio\SANNA.Negocio.csproj" /><ProjectReference Include="..\SANNA.Datos\SANNA.Datos.csproj" /><ProjectReference Include="..\SANNA.Entidades\SANNA.Entidades.csproj" /></ItemGroup>
+<ItemGroup>
+  <Compile Update="Properties\Resources.Designer.cs">
+    <DesignTime>True</DesignTime>
+    <AutoGen>True</AutoGen>
+    <DependentUpon>Resources.resx</DependentUpon>
+  </Compile>
+</ItemGroup>
+<ItemGroup>
+  <EmbeddedResource Update="Properties\Resources.resx">
+    <Generator>ResXFileCodeGenerator</Generator>
+    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+  </EmbeddedResource>
+</ItemGroup></Project>
